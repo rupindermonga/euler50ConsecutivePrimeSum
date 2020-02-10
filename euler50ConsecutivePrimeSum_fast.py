@@ -40,7 +40,7 @@ def ConsecutivePrimeSum(n):
         total = 0
         for prime in seq:
             total += prime
-            if total > 1000000:
+            if total > n:
                 break
             i += 1
             if total in prime_list:
