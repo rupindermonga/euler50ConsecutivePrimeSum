@@ -29,12 +29,11 @@ def PrimeList(n):
     # Filter out non-primes and return the list.
     return [i for i in candidates[2:] if i]
 
-import time
+
 def ConsecutivePrimeSum(n):
     prime_list = PrimeList(n)
     
     final_list = []
-    start_time = time.time()
     for start in range(10):
         seq = prime_list[start:]
         i = 0
@@ -48,32 +47,9 @@ def ConsecutivePrimeSum(n):
                 c = seq[:i]
                 if len(c) > len(final_list):
                     final_list = c
-    return sum(final_list), time.time() - start_time
+    return sum(final_list)
 
 final = ConsecutivePrimeSum(1000000)
 
 print(final)
 
-'''
-def main():
-    primes = euler(1000000)
-    largest = 0
-    chain = []
-    for start in range(10):
-        seq = primes[start:]
-        i = 0
-        total = 0
-        for prime in seq:
-            total += prime
-            if total > 1000000:
-                break
-            i += 1
-            if total in primes:
-                c = seq[:i]
-                if len(c) > len(chain):
-                    chain = c
-    print(sum(chain))
-
-if __name__ == "__main__":
-    main()
-'''
